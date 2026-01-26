@@ -1,0 +1,7 @@
+{
+  "name": "Gemini Scribe",
+  "description": "A professional-grade audio-to-text converter powered by Gemini 3 Flash, featuring real-time microphone capture and precise transcription.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

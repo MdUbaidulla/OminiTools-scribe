@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <!-- High-Level SEO Meta Tags -->
+    <title>Ominitools Scribe | Professional AI Audio Transcription Tool</title>
+    <meta name="title" content="Ominitools Scribe | Professional AI Audio Transcription Tool">
+    <meta name="description" content="Convert audio to text with elite accuracy using Ominitools Scribe. Free, secure, AI-powered speech to text with speaker labeling and interactive editing.">
+    <meta name="keywords" content="audio to text, speech to text, AI transcription, free transcription tool, transcribe mp3, speaker diarization, voice to text converter, gemini ai, scribe, ominitools">
+    <meta name="author" content="Ominitools">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ominitools.com/scribe" />
+
+    <!-- PWA & Mobile Optimization -->
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Scribe">
+    <link rel="manifest" href="./public/manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ominitools.com/scribe">
+    <meta property="og:site_name" content="Ominitools Scribe">
+    <meta property="og:title" content="Ominitools Scribe | Free AI Audio Transcription">
+    <meta property="og:description" content="Fast, accurate, and secure audio transcription powered by Gemini AI. Get professional transcripts in seconds.">
+    <meta property="og:image" content="https://ominitools.com/scribe/og-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ominitools.com/scribe">
+    <meta property="twitter:title" content="Ominitools Scribe | AI Audio to Text">
+    <meta property="twitter:description" content="Convert audio to text instantly. Precise AI transcription with speaker identification and local storage.">
+    <meta property="twitter:image" content="https://ominitools.com/scribe/twitter-preview.png">
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              indigo: {
+                50: '#f5f3ff',
+                100: '#e0e7ff',
+                200: '#c7d2fe',
+                300: '#a5b4fc',
+                400: '#818cf8',
+                500: '#6366f1',
+                600: '#4f46e5',
+                700: '#4338ca',
+                800: '#3730a3',
+                900: '#312e81',
+                950: '#1e1b4b',
+              },
+            },
+          },
+        },
+      }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfdfe;
+            color: #1e293b;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        html.dark body {
+            background-color: #020617;
+            color: #f1f5f9;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.33); }
+            80%, 100% { opacity: 0; }
+        }
+        .pulse-animation {
+            animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes waveform {
+            0%, 100% { height: 10px; }
+            50% { height: 35px; }
+        }
+        .waveform-bar {
+            animation: waveform 0.8s ease-in-out infinite;
+        }
+        
+        @keyframes progress-loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(300%); }
+        }
+        .animate-progress-loading {
+            animation: progress-loading 1.5s infinite linear;
+        }
+        
+        .active-word {
+            background-color: #4f46e5;
+            color: #ffffff;
+            border-radius: 4px;
+            transition: background-color 0.02s ease, color 0.02s ease, box-shadow 0.15s ease;
+            box-shadow: 0 4px 12px -2px rgba(79, 70, 229, 0.5);
+            font-weight: 600;
+            z-index: 10;
+            position: relative;
+        }
+
+        html.dark .active-word {
+            background-color: #6366f1;
+            box-shadow: 0 4px 12px -2px rgba(99, 102, 241, 0.7);
+        }
+        
+        .active-sentence-bg {
+            background-color: rgba(79, 70, 229, 0.04);
+            border-left: 3px solid #6366f1;
+            transition: all 0.25s ease;
+        }
+
+        html.dark .active-sentence-bg {
+            background-color: rgba(99, 102, 241, 0.1);
+            border-left-color: #818cf8;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        html.dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        html.dark ::-webkit-scrollbar-thumb { background: #334155; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        html.dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        .scroll-container { scroll-padding-top: 5rem; scroll-padding-bottom: 5rem; }
+
+        .word-seekable {
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            display: inline-block;
+            scroll-margin-top: 120px;
+            scroll-margin-bottom: 120px;
+        }
+        .word-seekable:hover {
+            background-color: #f1f5f9;
+            border-bottom-color: #cbd5e1;
+        }
+        html.dark .word-seekable:hover {
+            background-color: #1e293b;
+            border-bottom-color: #475569;
+        }
+
+        .transition-colors {
+            transition-property: background-color, border-color, color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

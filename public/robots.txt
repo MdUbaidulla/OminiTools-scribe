@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /scribe/
+
+# Host
+Host: https://ominitools.com
+
+# Sitemap
+Sitemap: https://ominitools.com/scribe/sitemap.xml

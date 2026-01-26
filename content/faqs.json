@@ -1,0 +1,15 @@
+
+[
+  {
+    "question": "Is my audio data stored on your servers?",
+    "answer": "No. Gemini Scribe uses a local-first architecture. Audio blobs are stored in your browser's IndexedDB, and the transcription happens via a secure API stream. We do not store your recordings."
+  },
+  {
+    "question": "What audio formats are supported?",
+    "answer": "We support all standard browser-compatible formats including MP3, WAV, AAC, OGG, and WebM."
+  },
+  {
+    "question": "Can I export my transcripts?",
+    "answer": "Yes! You can export individual transcripts or your entire library as TXT (plain text), JSON (raw data), or SRT (subtitle format with timestamps)."
+  }
+]
